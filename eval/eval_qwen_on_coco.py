@@ -519,7 +519,7 @@ def main(
         data: str = None
 ):
     # 修改路径
-    model_path = "/mnt/tidal-alsh01/dataset/OCRData/public_models/Qwen3-VL-4B-Instruct"
+    model_path = "Qwen3-VL-4B-Instruct"
 
     # 加载 Qwen 模型
     model, processor = load_model_and_processor(model_path)
