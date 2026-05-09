@@ -200,10 +200,10 @@ if __name__ == "__main__":
     text_emb = encoder.encode_text(prompt)
 
     for img_path in [
-        "val_zero2.jpg",
-        "black cat.png",
-        "black dog.png",
-        "ju cat.png",
+        "./asset/val_zero2.jpg",
+        "./asset/black cat.png",
+        "./asset/black dog.png",
+        "./asset/ju cat.png",
     ]:
         img = preprocess_image(img_path)
         img_emb = encoder.encode_image(img, prompt_template)
