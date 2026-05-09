@@ -92,7 +92,7 @@ class QwenVLEncoder(nn.Module):
     
 
 class InternVLLLMEncoder(nn.Module):
-    def __init__(self, model, tokenizer, meta_query_num=20):
+    def __init__(self, model, tokenizer, meta_query_num=1):
         super().__init__()
         self.model = model
         self.tokenizer = tokenizer
