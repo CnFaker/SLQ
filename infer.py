@@ -1,3 +1,5 @@
+# figuer2: Diagnostic pilot study
+
 import torch
 import torch.nn.functional as F
 import torch.nn as nn
@@ -59,18 +61,18 @@ def preprocess_image(image_path):
     return image.bfloat16().cuda()
 
 class QwenVLEncoder(nn.Module):
-    def __init__(self, model, processor, meta_query_num=20):
+    def __init__(self, model, processor, meta_query_num=1):
         super().__init__()
         self.model = model
         self.processor =  processor
 
         hidden_size = model.language_model.config.hidden_size
 
-        self.meta_queries = nn.Parameter(
-           torch.zeros(meta_query_num, hidden_size, dtype=torch.bfloat16)
-        )
+        # self.meta_queries = nn.Parameter(
+        #    torch.zeros(meta_query_num, hidden_size, dtype=torch.bfloat16)
+        # )
 
-        # nn.init.normal_(self.meta_queries, std=1 / math.sqrt(hidden_size))
+        nn.init.normal_(self.meta_queries, std=1 / math.sqrt(hidden_size))
 
         self.logit_scale = nn.Parameter(torch.ones([]) * 0.07)
 
@@ -99,11 +101,11 @@ class InternVLLLMEncoder(nn.Module):
 
         hidden_size = model.language_model.config.hidden_size
 
-        self.meta_queries = nn.Parameter(
-           torch.zeros(meta_query_num, hidden_size, dtype=torch.bfloat16)
-        )
+        # self.meta_queries = nn.Parameter(
+        #    torch.zeros(meta_query_num, hidden_size, dtype=torch.bfloat16)
+        # )
 
-        # nn.init.normal_(self.meta_queries, std=1 / math.sqrt(hidden_size))
+        nn.init.normal_(self.meta_queries, std=1 / math.sqrt(hidden_size))
 
 
         self.logit_scale = nn.Parameter(torch.ones([]) * 0.07)
