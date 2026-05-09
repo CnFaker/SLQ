@@ -339,7 +339,7 @@ def eval_coco(model, processor, device,
 
 def main(
     batch_size: int = 4,
-    model_name: str = '/mnt/tidal-alsh01/usr/louhaoran/data/model/models--TIGER-Lab--VLM2Vec-LLaVa-Next',
+    model_name: str = 'models--TIGER-Lab--VLM2Vec-LLaVa-Next',
     eval_datasets: list = None,
 ):
     # ★ 注意：disable_caching() 已在文件开头调用
