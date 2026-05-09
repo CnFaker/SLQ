@@ -182,7 +182,7 @@ def emb_image(model, processor, dataset, device, bsz=4, img_column='img'):
 
 def eval_coco(model, processor, device,
               data='coco', batch_size=4,
-              base_path='/mnt/tidal-alsh01/usr/louhaoran/data/dataset/retrieve'):
+              base_path=''):
 
     # ── 加载数据 ──
     if data == 'coco_knowledge_bench':
